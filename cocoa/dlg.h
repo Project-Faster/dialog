@@ -1,4 +1,14 @@
+
+#ifndef DLG_H
+#define DLG_H
+
+#ifndef __has_extension
+#define __has_extension(x) 0
+#endif
+
 #include <objc/NSObjCRuntime.h>
+#include <stdlib.h>
+#include <sys/syslimits.h>
 
 typedef enum {
 	MSG_YESNO,
@@ -39,3 +49,5 @@ DlgResult fileDlg(FileDlgParams*);
 
 void* NSStr(void* buf, int len);
 void NSRelease(void* obj);
+
+#endif
