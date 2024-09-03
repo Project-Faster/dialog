@@ -14,9 +14,15 @@ package dialog
 import "C"
 import "unsafe"
 
+import (
+	"os"
+)
+
 var initSuccess bool
 
 func init() {
+	os.Setenv("GDK_BACKEND", "x11") // fix crash on wayland
+
 	C.XInitThreads()
 	initSuccess = (C.gtk_init_check(nil, nil) == C.TRUE)
 }
